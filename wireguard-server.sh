@@ -346,7 +346,8 @@ if [ ! -f "$WG_CONFIG" ]; then
       echo "   8) DNS.WATCH"
       echo "   9) Yandex Basic"
       echo "   10) Clean Browsing"
-      read -rp "DNS [1-10]: " -e -i 1 DNS_CHOICE
+      echo "   11) Custom"
+      read -rp "DNS [1-11]: " -e -i 1 DNS_CHOICE
       case $DNS_CHOICE in
       1)
         CLIENT_DNS="176.103.130.130,176.103.130.131,2a00:5a60::ad1:0ff,2a00:5a60::ad2:0ff"
@@ -378,6 +379,8 @@ if [ ! -f "$WG_CONFIG" ]; then
       10)
         CLIENT_DNS="185.228.168.9,185.228.169.9,2a0d:2a00:1::2,2a0d:2a00:2::2"
         ;;
+      11)
+        read -rp "Enter customer DNS Servers (Default: AdGuard) " -e -i "176.103.130.130,176.103.130.131,2a00:5a60::ad1:0ff,2a00:5a60::ad2:0ff" CLIENT_DNS
       esac
     fi
   }
