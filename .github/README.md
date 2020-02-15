@@ -37,7 +37,6 @@ apt-get update && apt-get install wget -y
 wget https://raw.githubusercontent.com/complexorganizations/wireguard-installer-manager/master/wireguard-server.sh -P /etc/wireguard/
 bash /etc/wireguard/wireguard-server.sh
 ```
-=======
 
 In your `/etc/wireguard/clients` directory, you will have `.conf` files. These are the client configuration files. Download them from your WireGuard Interface and connect using your favorite WireGuard Peer.
 
@@ -79,8 +78,6 @@ In your `/etc/wireguard/clients` directory, you will have `.conf` files. These a
 
 ---
 ### Compatibility with Linux Distro
-=======
-### Compatibility (Linux & Cloud Providers)
 | OS              | Supported          | i386               | amd64              | armhf              | arm64              |
 | --------------  | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
 | Ubuntu 14.04 ≤  |:x:                 |:x:                 |:x:                 |:x:                 |:x:                 |
