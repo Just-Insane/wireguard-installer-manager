@@ -29,7 +29,6 @@
 wget https://raw.githubusercontent.com/complexorganizations/wireguard-installer-manager/master/wireguard-server.sh -P /etc/wireguard/
 bash /etc/wireguard/wireguard-server.sh
 ```
-
 ***Docker Installation***
 ```
 docker pull ubuntu
@@ -43,7 +42,6 @@ In your `/etc/wireguard/clients` directory, you will have `.conf` files. These a
 
 ---
 ### After Installation
-
 - Show WireGuard Interface
 - Start WireGuard Interface
 - Stop WireGuard Interface
@@ -79,7 +77,7 @@ In your `/etc/wireguard/clients` directory, you will have `.conf` files. These a
 * `MTU_CHOICE` - the MTU the client will use to connect to DNS
 
 ---
-### Compatibility
+### Compatibility with Linux Distro
 | OS              | Supported          | i386               | amd64              | armhf              | arm64              |
 | --------------  | ------------------ | ------------------ | ------------------ | ------------------ | ------------------ |
 | Ubuntu 14.04 ≤  |:x:                 |:x:                 |:x:                 |:x:                 |:x:                 |
@@ -105,6 +103,7 @@ In your `/etc/wireguard/clients` directory, you will have `.conf` files. These a
 | LXC             |:x:                 |:x:                 |:x:                 |:x:                 |:x:                 |
 | OpenVZ          |:x:                 |:x:                 |:x:                 |:x:                 |:x:                 |
 
+### Compatibility with Cloud Providers
 | Cloud           | Supported          |
 | --------------  | ------------------ |
 | AWS             |:white_check_mark:  |
@@ -154,20 +153,15 @@ Use a browser based development environment:
 
 [![Open in Gitpod](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/complexorganizations/wireguard-install)
 
-***Debugging Server***
+***Debugging***
 ```
 wget https://raw.githubusercontent.com/complexorganizations/wireguard-installer-manager/master/wireguard-server.sh -P /etc/wireguard/
 bash -x /etc/wireguard/wireguard-server.sh >> /etc/wireguard/wireguard-server.log
 ```
-***Debugging Client***
-```
-wget https://raw.githubusercontent.com/complexorganizations/wireguard-installer-manager/master/wireguard-client.sh -P /etc/wireguard/
-bash -x /etc/wireguard/wireguard-server.sh >> /etc/wireguard/wireguard-client.log
-```
-___
+---
 ### Credits
 [Angristan](https://raw.githubusercontent.com/angristan/wireguard-install/master/LICENSE)
 [l-n-s](https://raw.githubusercontent.com/l-n-s/wireguard-install/master/LICENSE) 
 
-### License 
+### License
 This project is under the [General Public License](https://raw.githubusercontent.com/complexorganizations/wireguard-install/master/.github/LICENSE)
