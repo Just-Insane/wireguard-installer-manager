@@ -6,10 +6,10 @@ MAINTAINER Prajwal Koirala <www.prajwalkoirala.com>
 RUN apt-get update && \
     apt-get install wget -y && \
     wget https://raw.githubusercontent.com/complexorganizations/wireguard-installer-manager/master/wireguard-server.sh -P /etc/wireguard/ && \
-    bash /etc/wireguard/wireguard-server.sh
+    HEADLESS_INSTALL=y /etc/wireguard/wireguard-server.sh
 
 EXPOSE 51820
 
-ENTRYPOINT ["/scripts/run.sh"]
+ENTRYPOINT []
 
 CMD []
