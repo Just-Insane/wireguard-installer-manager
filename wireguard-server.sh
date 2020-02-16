@@ -347,6 +347,9 @@ if [ ! -f "$WG_CONFIG" ]; then
       echo "   9) Yandex Basic"
       echo "   10) Clean Browsing"
       echo "   11) Custom (Advanced)"
+      # until [[ "$CLIENT_DNS" =~ ^[1-11]$ ]]; do
+      #   read -rp "DNS [1-11]: " -e -i 1 CLIENT_DNS
+      # done
       until [[ "$CLIENT_DNS" =~ ^[1-11]$ ]]; do
         read -rp "DNS [1-11]: " -e -i 1 CLIENT_DNS
       done
@@ -387,6 +390,7 @@ if [ ! -f "$WG_CONFIG" ]; then
         until [[ "$CLIENT_DNS" != "" ]]; do
           read -rp "Custom DNS Servers (Default: AdGuard)" -e -i "176.103.130.130,176.103.130.131,2a00:5a60::ad1:0ff,2a00:5a60::ad2:0ff" CLIENT_DNS
         done
+        ;;
       esac
     fi
   }
