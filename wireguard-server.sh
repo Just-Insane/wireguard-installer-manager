@@ -347,8 +347,8 @@ if [ ! -f "$WG_CONFIG" ]; then
       echo "   9) Yandex Basic"
       echo "   10) Clean Browsing"
       echo "   11) Custom (Advanced)"
-      read -rp "DNS [1-11]: " -e -i 1 DNS_CHOICE
-      case $DNS_CHOICE in
+      read -rp "DNS [1-11]: " -e -i 1 CLIENT_DNS
+      case $CLIENT_DNS in
       1)
         CLIENT_DNS="176.103.130.130,176.103.130.131,2a00:5a60::ad1:0ff,2a00:5a60::ad2:0ff"
         ;;
@@ -410,8 +410,7 @@ function install-wireguard-server() {
     apt-get install linux-headers-"$(uname -r)" -y
     apt-get install wireguard qrencode haveged -y
   fi
-  # shellcheck disable=SC2235
-  if [ "$DISTRO" == "ubuntu" ] && ( [ "$VERSION" == "18.04" ] || [ "$VERSION" == "16.04" ] ); then
+  if [ "$DISTRO" == "ubuntu" ] && [ "$VERSION" == "18.04" ] && [ "$VERSION" == "16.04" ]; then
     apt-get update
     apt-get install software-properties-common -y
     add-apt-repository ppa:wireguard/wireguard -y
@@ -448,8 +447,7 @@ function install-wireguard-server() {
     dnf install kernel-headers-"$(uname -r)" kernel-devel-"$(uname -r)" -y
     dnf install qrencode wireguard-tools haveged -y
   fi
-  # shellcheck disable=SC2235
-  if [ "$DISTRO" = 'fedora' ] && ( [ "$VERSION" == "31" ] || [ "$VERSION" == "30" ] ); then
+  if [ "$DISTRO" = 'fedora' ] && [ "$VERSION" == "31" ] && [ "$VERSION" == "30" ]; then
     dnf update -y
     dnf copr enable jdoss/wireguard -y
     dnf install kernel-headers-"$(uname -r)" kernel-devel-"$(uname -r)" -y
