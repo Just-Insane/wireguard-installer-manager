@@ -347,8 +347,8 @@ if [ ! -f "$WG_CONFIG" ]; then
       echo "   9) Yandex Basic"
       echo "   10) Clean Browsing"
       echo "   11) Custom (Advanced)"
-      until [[ "$DNS_CHOICE" =~ ^[1-11]$ ]]; do
-        read -rp "DNS [1-11]: " -e -i 1 DNS_CHOICE
+      until [[ "$CLIENT_DNS" =~ ^[1-11]$ ]]; do
+        read -rp "DNS [1-11]: " -e -i 1 CLIENT_DNS
       done
       case $CLIENT_DNS in
       1)
