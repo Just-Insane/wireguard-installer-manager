@@ -350,7 +350,7 @@ if [ ! -f "$WG_CONFIG" ]; then
       # until [[ "$CLIENT_DNS" =~ ^[1-11]$ ]]; do
       #   read -rp "DNS [1-11]: " -e -i 1 CLIENT_DNS
       # done
-      until [[ "$CLIENT_DNS" =~ ^[1-11]$ ]]; do
+      until [[ "$CLIENT_DNS" =~ ^[0-9]*$ ]]; do
         read -rp "DNS [1-11]: " -e -i 1 CLIENT_DNS
       done
       case $CLIENT_DNS in
