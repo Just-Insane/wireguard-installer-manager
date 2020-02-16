@@ -334,7 +334,7 @@ if [ ! -f "$WG_CONFIG" ]; then
     # shellcheck disable=SC2034
     read -rp "Do You Want To Install Unbound (y/n): " -e -i y INSTALL_UNBOUND
   fi
-  if [ "$INSTALL_UNBOUND" == "n" ] && [ "$CLIENT_DNS" == "" ]; then
+  if [ "$INSTALL_UNBOUND" == "n" ]; then
       echo "Which DNS do you want to use with the VPN?"
       echo "   1) AdGuard (Recommended)"
       echo "   2) Google"
@@ -347,7 +347,9 @@ if [ ! -f "$WG_CONFIG" ]; then
       echo "   9) Yandex Basic"
       echo "   10) Clean Browsing"
       echo "   11) Custom (Advanced)"
-      read -rp "DNS [1-11]: " -e -i 1 CLIENT_DNS
+      until [[ "$DNS_CHOICE" =~ ^[1-11]$ ]]; do
+        read -rp "DNS [1-11]: " -e -i 1 DNS_CHOICE
+      done
       case $CLIENT_DNS in
       1)
         CLIENT_DNS="176.103.130.130,176.103.130.131,2a00:5a60::ad1:0ff,2a00:5a60::ad2:0ff"
@@ -382,7 +384,9 @@ if [ ! -f "$WG_CONFIG" ]; then
       11)
         echo "Please provide at least 1 IPv4 and 1 IPv6 server."
         echo "This is required for proper client functionality."
-        read -rp "Custom DNS Servers (Default: AdGuard)" -e -i "176.103.130.130,176.103.130.131,2a00:5a60::ad1:0ff,2a00:5a60::ad2:0ff" CLIENT_DNS
+        until [[ "$CLIENT_DNS" != "" ]]; do
+          read -rp "Custom DNS Servers (Default: AdGuard)" -e -i "176.103.130.130,176.103.130.131,2a00:5a60::ad1:0ff,2a00:5a60::ad2:0ff" CLIENT_DNS
+        done
       esac
     fi
   }
