@@ -334,7 +334,7 @@ if [ ! -f "$WG_CONFIG" ]; then
     # shellcheck disable=SC2034
     read -rp "Do You Want To Install Unbound (y/n): " -e -i y INSTALL_UNBOUND
   fi
-  if [ "$INSTALL_UNBOUND" == "n" ]; then
+  if [ "$INSTALL_UNBOUND" == "n" ] && [ "$CLIENT_DNS" == "" ]; then
       echo "Which DNS do you want to use with the VPN?"
       echo "   1) AdGuard (Recommended)"
       echo "   2) Google"
